@@ -5,15 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bar Chart Stretch Project</title>
+    <link rel="stylesheet" href="assets/main.css">
+    <script src="jquery.js"></script>
     <script src="draw-bar-chart.js"></script>
   </head>
 
   <body>
-    <a href="http://jquery.com/">jQuery</a>
-    <script src="jquery.js"></script>
+    <h1>Bar Chart Stretch Project</h1>
+    <h2>Objective:</h2>
+    <p>Create a bar chart using only HTML, CSS and JavaScript w/ jQuery.</p>
+    <div id="destination"></div>
     <script>
 
-  // Your code goes here.
+      // Your code goes here.
+      $(document).ready(function () {
+
+        // Change the code starting here
+        drawBarChart([100, 200, 50, 300, 150, 500, 450], {
+          width: 200,
+          height: 200
+        }, "#destination");
+
+        // Stop changing the code here
+
+      });
+
+
+      // Your code finishes above
 
     </script>
   </body>
