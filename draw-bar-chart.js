@@ -5,13 +5,18 @@ const charOptions = {
   barColour: "light-blue",
   labelColour: "black",
   barSpacing: 20,
-  barChartAxes: ["x", "y"]
+  barChartAxes: ["x", "y"],
 }
 
 
 const drawBarChart = function (data, options, element) {
+  // to do
+  // change width according to the options
+  // change bar spacing according to the options
+  // split this main functions in small functions
   let barWidth;
   let barHeight;
+
   if (options.width !== undefined) {
     charOptions.width = options.width;
   };
@@ -24,16 +29,25 @@ const drawBarChart = function (data, options, element) {
     barWidth = charOptions.width / 2 / data.length; // bar width depends on the total amount of values passed.
     barHeight = value; // bar height should be dependent on the values of the data.
     destination.insertAdjacentHTML("beforeend",
-      `<span id="bars${counter}" class="bars">${barHeight}</span>`
+      `<div id="bars${counter}" class="bars">
+        <span class="bar-values">${barHeight}</span>
+      </div>`
     )
-    $(`#bars${counter}` ).css({
-      "height": `${(barHeight/Math.max(...data))*100}%`,
+    destination.insertAdjacentHTML("beforeend",
+      `<div class="bar-spaces"></div>`
+    )
+    $(`#bars${counter}`).css({
+      "height": `${(barHeight / Math.max(...data)) * 100}%`,
       "background-color": `${charOptions.barColour}`,
-      "vertical-align": "bottom",
-      "border": "0.1mm solid black"
+      "width": `${barWidth}`
     });
     counter++;
   };
+$(".bar-values").css({
+  "display": "inline-grid",
+  "align-items": `${options.valuesPosition ? options.valuesPosition:"start"}`
+})
+
 };
 
 // The data parameter will be the data the chart should work from Start with just an

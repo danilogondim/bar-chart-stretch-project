@@ -1,13 +1,18 @@
 .bars {
   background:lightblue;
-  height: 100px;
-  width: 50px;
-  display: inline-block;
+  display: inline-grid;
+  vertical-align: bottom;
+  border: 0.1mm solid black;
 }
 
 #destination {
   height: 400px;
   text-align: center;
   margin-top: 40px;
+  border: 0.1mm solid black
 }
 
+.bar-spaces {
+  display: inline-block;
+  width: 50px
+}

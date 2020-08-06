@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bar Chart Stretch Project</title>
     <link rel="stylesheet" href="assets/main.css">
-    <script src="jquery.js"></script>
+    <script src="assets/jquery.js"></script>
     <script src="draw-bar-chart.js"></script>
   </head>
 
@@ -22,8 +22,9 @@
 
         // Change the code starting here
         drawBarChart([100, 200, 50, 300, 150, 500, 450], {
-          width: 200,
-          height: 200
+          width: 1000,
+          height: 2000,
+          valuesPosition: "start"  //start, center or end (top, center or bottom)
         }, "#destination");
 
         // Stop changing the code here
