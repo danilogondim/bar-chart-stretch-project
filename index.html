@@ -7,6 +7,9 @@
     <title>Bar Chart Stretch Project</title>
     <link rel="stylesheet" href="assets/main.css">
     <script src="assets/jquery.js"></script>
+    <script src="assets/drawTitle.js"></script>
+    <script src="assets/drawBars.js"></script>
+    <script src="assets/drawLabels.js"></script>
     <script src="draw-bar-chart.js"></script>
   </head>
 
@@ -21,11 +24,28 @@
       $(document).ready(function () {
 
         // Change the code starting here
-        drawBarChart([100, 200, 50, 300, 150, 500, 450, 175], {
+        drawBarChart([
+          { label: 2011, value: 100 },
+          { label: 2012, value: 150 },
+          { label: 2013, value: 200 },
+          { label: 2014, value: 300 },
+          { label: 2015, value: 255 },
+          { label: 2016, value: 420 },
+          { label: 2017, value: 320 },
+          { label: 2018, value: 500 },
+          { label: 2019, value: 450 },
+          { label: 2020, value: 175 }
+        ], {
           width: 700,
           height: 300,
+          title: "A generic chart",
+          titleColour: "black",
+          titleSize: 35,
+          valuesPosition: "start",  //start, center or end (top, center or bottom)
+          valuesColour: "black",
+          barColour: "lightcoral",
           barSpacing: 35,
-          valuesPosition: "start"  //start, center or end (top, center or bottom)
+          labelColour: "black",
         }, "#destination");
 
         // Stop changing the code here
