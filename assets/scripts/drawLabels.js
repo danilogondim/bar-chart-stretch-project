@@ -1,15 +1,18 @@
 //@ts-nocheck
 
 const drawLabels = function (data, options, element) {
+
+
+
   $(element).css({
-    "width": `${options.width}`,
-    "height": `${options.height * .15}`,
+    "width": options.plotWidth,
+    "height": options.labelsHeight,
     "text-align": "center"
   })
 
 
   // make barWidth dynamic according to the chart width, the empty spaces and the number of values passed)
-  const barWidth = (options.width - ((data.length + 1) * options.barSpacing)) / data.length; // bar width depends on the total amount of values passed.
+  const barWidth = (options.plotWidth - ((data.length + 1) * options.barSpacing)) / data.length; // bar width depends on the total amount of values passed.
 
   let counter = 0;
 
@@ -36,7 +39,8 @@ const drawLabels = function (data, options, element) {
   $(".labels").css({
     "display": "inline-block",
     "width": barWidth,
-    "color": options.labelColour
+    "color": options.labelColour,
+    "font-size": options.labelsSize
   })
 
 };

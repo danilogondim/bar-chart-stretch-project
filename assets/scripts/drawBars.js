@@ -2,13 +2,13 @@
 
 const drawBars = function (data, options, element) {
   $(element).css({
-    "width": `${options.width}`,
-    "height": `${options.height * .7}`
+    "width": options.plotWidth,
+    "height": options.plotHeight
   })
 
 
   // make barWidth dynamic according to the chart width, the empty spaces and the number of values passed)
-  const barWidth = (options.width - ((data.length + 1) * options.barSpacing)) / data.length; // bar width depends on the total amount of values passed.
+  const barWidth = (options.plotWidth - ((data.length + 1) * options.barSpacing)) / data.length; // bar width depends on the total amount of values passed.
 
   let counter = 0;
   let maxValue;
@@ -47,8 +47,9 @@ const drawBars = function (data, options, element) {
 
   $(".bar-values").css({
     "display": "inline-grid",
-    "align-items": `${options.valuesPosition}`,
-    "color":`${options.valuesColour}`
+    "align-items": options.valuesPosition,
+    "color": options.valuesColour,
+    "font-size": options.valuesSize
   })
   $(".bar-spaces").css({
     "width": `${options.barSpacing}`

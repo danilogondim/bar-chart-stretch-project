@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bar Chart Stretch Project</title>
     <link rel="stylesheet" href="assets/main.css">
-    <script src="assets/jquery.js"></script>
-    <script src="assets/drawTitle.js"></script>
-    <script src="assets/drawBars.js"></script>
-    <script src="assets/drawLabels.js"></script>
+    <script src="assets/scripts/jquery.js"></script>
+    <script src="assets/scripts/checkValues.js"></script>
+    <script src="assets/scripts/drawYAxis.js"></script>
+    <script src="assets/scripts/drawTitle.js"></script>
+    <script src="assets/scripts/drawBars.js"></script>
+    <script src="assets/scripts/drawLabels.js"></script>
     <script src="draw-bar-chart.js"></script>
   </head>
 
@@ -19,11 +21,7 @@
     <p>Create a bar chart using only HTML, CSS and JavaScript w/ jQuery.</p>
     <div id="destination"></div>
     <script>
-
-      // Your code goes here.
       $(document).ready(function () {
-
-        // Change the code starting here
         drawBarChart([
           { label: 2011, value: 100 },
           { label: 2012, value: 150 },
@@ -36,8 +34,8 @@
           { label: 2019, value: 450 },
           { label: 2020, value: 175 }
         ], {
-          width: 700,
-          height: 300,
+          chartWidth: 700,
+          chartHeight: 300,
           title: "A generic chart",
           titleColour: "black",
           titleSize: 35,
@@ -47,14 +45,7 @@
           barSpacing: 35,
           labelColour: "black",
         }, "#destination");
-
-        // Stop changing the code here
-
       });
-
-
-      // Your code finishes above
-
     </script>
   </body>
 

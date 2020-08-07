@@ -22,4 +22,5 @@
 #bars {
   border-left: 0.3mm solid lightslategray;
   border-bottom: 0.3mm solid lightslategray;
+  display: table;
 }
