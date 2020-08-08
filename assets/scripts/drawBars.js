@@ -41,9 +41,9 @@ const drawBars = function (data, options, element) {
 
   $(".bar-values").css({
     "display": "inline-grid",
-    "align-items": options.valuesPosition,
-    "color": options.valuesColour,
-    "font-size": options.valuesSize
+    "align-items": options.plotValuesPosition,
+    "color": options.plotValuesColour,
+    "font-size": options.plotValuesSize
   })
   $(".bar-spaces").css({
     "width": `${options.barSpacing}`

@@ -2,25 +2,7 @@
 
 // include better behaviour for decimal values
 
-// include a blank space to the left equal to the blank space on the right (maybe top and bottom)
-
-// test chartMaxValue customization
-
-// work with the values check (plotWidth + yAxisWidth = chartWidth; titleHeight + plotHeight + labelsHeight = chartWidth)
-
-// bar chart axes titles
-
-// check whether the functions use all the passed parameters and clean them
-
-// Y-axis should show ticks at certain values
-// Think about where you would configure these values. Should they be part of the data
-// or the options to the bar chart function.
-
 // reorganize the code, classes, ids...
-
-// change axis vs chart proportion (.05 vs .95)
-
-// make it able to decrease the chart width and length without losing soo much appearance (labels and titles shoud be limited to a maximum height/width)
 
 /*
   Multiple Value (Stacked) bar charts
@@ -37,19 +19,33 @@
 //@ts-nocheck
 
 const drawBarChart = function (data, options, element) {
-  checkValues(data, options, element)
+  checkValues(data, options)
   $(element).css({
     "width": options.chartWidth,
     "height": options.chartHeight,
     "display": "flex"
   })
+
+  // draw y-axis
   $(element).append("<div id=\"y-axis\"></div>");
-  drawYAxis(data, options, "#y-axis");
+  drawYAxis(options, "#y-axis");
+
+  // set a div to work with the plot area
   $(element).append("<div id=\"chart\"></div>");
+
+  // draw the title
   $("#chart").append("<span id=\"title\"></span>");
   drawTitle(data, options, "#title");
+
+  // draw within the plotting area (the bars)
   $("#chart").append("<div id=\"bars\"></div>");
-  drawBars(data, options, "#bars"); //change options? data?
-  $("#chart").append("<span id=\"labels\"></span>"); // change options? data?
+  drawBars(data, options, "#bars");
+
+  // draw the labels
+  $("#chart").append("<span id=\"labels\"></span>");
   drawLabels(data, options, "#labels");
+
+  // draw the x-axis title
+  $("#chart").append("<span id=\"x-axis-title\"></span>");
+  drawXAxis(data, options, "#x-axis-title");
 }

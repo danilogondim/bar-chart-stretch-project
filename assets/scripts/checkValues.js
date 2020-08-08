@@ -1,27 +1,35 @@
 //@ts-nocheck
 
-const checkValues = function (data, options, element) {
+const checkValues = function (data, options) {
   // default values in case the user does not pass an option
   const defaultOptions = {
 
     chartWidth: 700,
     chartHeight: 300,
 
-    yAxisWidth: 35,
-    qTicks: 5,
-    ticksSize: 12,
-
     title: "",
     titleHeight: 45,
     titleColour: "black",
     titleSize: 25,
 
+    yAxisWidth: 35,
+
+    yAxisTitle: "",
+    yTitleSize: 12,
+    yAxisTitleWidth: 14,
+
+    qTicks: 5,
+    yTicksWidth: 10.5,
+
+    tickValuesSize: 12,
+    yValuesWidth: 10.5,
+
     plotWidth: 665,
     plotHeight: 210,
 
-    valuesPosition: "start",
-    valuesColour: "black",
-    valuesSize: 15,
+    plotValuesPosition: "start",
+    plotValuesColour: "black",
+    plotValuesSize: 15,
 
     barColour: "light-blue",
     barSpacing: 50,
@@ -30,7 +38,9 @@ const checkValues = function (data, options, element) {
     labelsHeight: 45,
     labelsSize: 15,
 
-    barChartAxes: ["x", "y"]
+    xAxisTitle: "Years",
+    xTitleSize: 12,
+    xAxisTitleHeight: 14,
   }
   // check whether an option was not given and set to the default values if necessary
   for (let option in defaultOptions) {
@@ -39,19 +49,32 @@ const checkValues = function (data, options, element) {
     }
   }
 
-  // reducing chart space so the y axis can be inserted within the main object
-  options.plotWidth = options.chartWidth * .95;
-  options.yAxisWidth = options.chartWidth * .05;
-  options.titleHeight = options.chartHeight * .15;
-  options.plotHeight = options.chartHeight * .7;
-  options.labelsHeight = options.chartHeight * .15;
+  // check whether the passed widths are compatible and correct them if not, trying to keep the same rate as passed
+  if (options.plotWidth + options.yAxisWidth !== options.chartWidth) {
+    options.plotWidth = options.chartWidth * options.plotWidth / (options.plotWidth + options.yAxisWidth);
+    options.yAxisWidth = options.chartWidth * options.yAxisWidth / (options.plotWidth + options.yAxisWidth);
+  };
+  if (options.yAxisTitleWidth + options.yTicksWidth + options.yValuesWidth !== options.yAxisWidth) {
+    options.yAxisTitleWidth = options.yAxisWidth * options.yAxisTitleWidth / (options.yAxisTitleWidth + options.yTicksWidth + options.yValuesWidth);
+    options.yTicksWidth = options.yAxisWidth * options.yTicksWidth / (options.yAxisTitleWidth + options.yTicksWidth + options.yValuesWidth);
+    options.yValuesWidth = options.yAxisWidth * options.yValuesWidth / (options.yAxisTitleWidth + options.yTicksWidth + options.yValuesWidth);
+  };
+
+  // check whether the passed heights are compatible and correct them if not, trying to keep the same rate as passed
+
+  if (options.titleHeight + options.plotHeight + options.labelsHeight + options.xAxisTitleHeight !== options.chartHeight) {
+    options.titleHeight = options.chartHeight * options.titleHeight / (options.titleHeight + options.plotHeight + options.labelsHeight + options.xAxisTitleHeight)
+    options.plotHeight = options.chartHeight * options.plotHeight / (options.titleHeight + options.plotHeight + options.labelsHeight + options.xAxisTitleHeight)
+    options.labelsHeight = options.chartHeight * options.labelsHeight / (options.titleHeight + options.plotHeight + options.labelsHeight + options.xAxisTitleHeight)
+    options.xAxisTitleHeight = options.chartHeight * options.xAxisTitleHeight / (options.titleHeight + options.plotHeight + options.labelsHeight + options.xAxisTitleHeight)
+  }
 
   // set a limit to barSpacing according to the plot width and the number of elements (minimum acceptable width for each bar is 0.1px)
   if ((options.barSpacing * (data.length + 1)) > (options.plotWidth + data.length * 0.1)) {
     options.barSpacing = (options.plotWidth - data.length * 0.1) / (data.length + 1)
   }
 
-  // setting a MaxValue to help defining y-axis and bar heights
+  // set a MaxValue to help defining y-axis and bar heights
   for (let obj of data) {
     if (options.maxValue === undefined) {
       options.maxValue = obj.value;
@@ -60,7 +83,7 @@ const checkValues = function (data, options, element) {
     }
   }
 
-  // setting a chartMaxValue by adding an arbitrary value to MaxValue
+  // set a chartMaxValue by adding an arbitrary value to MaxValue
   // the chartMaxValue will be used to set y-axis ticks and plot area
   // 0-9 = max +1
   // 10-18 = max +2
