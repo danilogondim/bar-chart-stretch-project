@@ -11,17 +11,11 @@ const drawBars = function (data, options, element) {
   const barWidth = (options.plotWidth - ((data.length + 1) * options.barSpacing)) / data.length; // bar width depends on the total amount of values passed.
 
   let counter = 0;
-  let maxValue;
-  for (let obj of data) {
-    if (maxValue === undefined) {
-      maxValue = obj.value;
-    } else if (obj.value > maxValue) {
-      maxValue = obj.value;
-    }
-  }
+
   for (let obj of data) {
 
     if (counter === 0) {
+      $(element).append(`<span id="top-empty-space" style="height: ${(options.chartMaxValue - options.maxValue) / options.chartMaxValue * 100}%; display: block"></span>`);
       $(element).append("<div class=\"bar-spaces\"></div>");
     }
 
@@ -36,7 +30,7 @@ const drawBars = function (data, options, element) {
 
 
     $(`#bars${counter}`).css({
-      "height": `${(obj.value / maxValue) * 100}%` // bar height should be dependent on the values of the data.
+      "height": `${obj.value / options.chartMaxValue * 100}%` // bar height should be dependent on the values of the data.
     });
     counter++;
   };

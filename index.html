@@ -22,29 +22,37 @@
     <div id="destination"></div>
     <script>
       $(document).ready(function () {
-        drawBarChart([
-          { label: 2011, value: 100 },
-          { label: 2012, value: 150 },
-          { label: 2013, value: 200 },
-          { label: 2014, value: 300 },
-          { label: 2015, value: 255 },
-          { label: 2016, value: 420 },
-          { label: 2017, value: 320 },
-          { label: 2018, value: 500 },
-          { label: 2019, value: 450 },
-          { label: 2020, value: 175 }
-        ], {
-          chartWidth: 700,
-          chartHeight: 300,
-          title: "A generic chart",
-          titleColour: "black",
-          titleSize: 35,
-          valuesPosition: "start",  //start, center or end (top, center or bottom)
-          valuesColour: "black",
-          barColour: "lightcoral",
-          barSpacing: 35,
-          labelColour: "black",
-        }, "#destination");
+        drawBarChart(
+
+          [
+            { label: 2011, value: 100 },
+            { label: 2012, value: 150 },
+            { label: 2013, value: 200 },
+            { label: 2014, value: 300 },
+            { label: 2015, value: 255 },
+            { label: 2016, value: 420 },
+            { label: 2017, value: 320 },
+            { label: 2018, value: 500 },
+            { label: 2019, value: 450 },
+            { label: 2020, value: 175 }
+          ],
+
+          {
+            chartWidth: 700,
+            chartHeight: 300,
+            title: "A generic chart",
+            titleColour: "black",
+            titleSize: 30,
+            valuesPosition: "start",  //start, center or end (top, center or bottom)
+            valuesColour: "black",
+            barColour: "lightcoral",
+            barSpacing: 35,
+            labelColour: "black",
+          },
+
+          "#destination"
+
+        );
       });
     </script>
   </body>

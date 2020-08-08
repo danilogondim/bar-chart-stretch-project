@@ -7,7 +7,7 @@ const checkValues = function (data, options, element) {
     chartWidth: 700,
     chartHeight: 300,
 
-    yAxisWidth:35,
+    yAxisWidth: 35,
 
     title: "",
     titleHeight: 45,
@@ -48,5 +48,45 @@ const checkValues = function (data, options, element) {
   if ((options.barSpacing * (data.length + 1)) > (options.plotWidth + data.length * 0.1)) {
     options.barSpacing = (options.plotWidth - data.length * 0.1) / (data.length + 1)
   }
+
+  // setting a MaxValue to help defining y-axis and bar heights
+  for (let obj of data) {
+    if (options.maxValue === undefined) {
+      options.maxValue = obj.value;
+    } else if (obj.value > options.maxValue) {
+      options.maxValue = obj.value;
+    }
+  }
+
+  // setting a chartMaxValue by adding an arbitrary value to MaxValue
+  // the chartMaxValue will be used to set y-axis ticks and plot area
+  // 0-9 = max +1
+  // 10-18 = max +2
+  // 19-99 = next multiple of 5 (can not be the same number)
+  // else = next multiple of 20 (can not be the same number)
+  options.chartMaxValue = options.maxValue;
+  if (options.chartMaxValue <= 9) {
+    options.chartMaxValue += 1;
+  } else if (options.chartMaxValue <= 18) {
+    options.chartMaxValue += 2;
+
+  } else if (options.chartMaxValue <= 99) {
+    options.chartMaxValue += 1;
+    while (options.chartMaxValue % 5 !== 0) {
+      options.chartMaxValue += 1;
+    }
+
+  } else {
+    options.chartMaxValue += 1;
+    while (options.chartMaxValue % 20 !== 0) {
+      options.chartMaxValue += 1;
+    }
+  }
+
+
+
+
+
+
 
 }

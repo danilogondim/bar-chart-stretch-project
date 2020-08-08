@@ -1,5 +1,9 @@
 // to do
 
+// test chartMaxValue customization
+
+// work with the values check (plotWidth + yAxisWidth = chartWidth; titleHeight + plotHeight + labelsHeight = chartWidth)
+
 // bar chart axes titles
 
 // check whether the functions use all the passed parameters and clean them
