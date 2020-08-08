@@ -1,5 +1,9 @@
 // to do
 
+// include better behaviour for decimal values
+
+// include a blank space to the left equal to the blank space on the right (maybe top and bottom)
+
 // test chartMaxValue customization
 
 // work with the values check (plotWidth + yAxisWidth = chartWidth; titleHeight + plotHeight + labelsHeight = chartWidth)

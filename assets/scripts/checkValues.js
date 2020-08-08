@@ -8,6 +8,8 @@ const checkValues = function (data, options, element) {
     chartHeight: 300,
 
     yAxisWidth: 35,
+    qTicks: 5,
+    ticksSize: 12,
 
     title: "",
     titleHeight: 45,
@@ -64,23 +66,27 @@ const checkValues = function (data, options, element) {
   // 10-18 = max +2
   // 19-99 = next multiple of 5 (can not be the same number)
   // else = next multiple of 20 (can not be the same number)
-  options.chartMaxValue = options.maxValue;
-  if (options.chartMaxValue <= 9) {
-    options.chartMaxValue += 1;
-  } else if (options.chartMaxValue <= 18) {
-    options.chartMaxValue += 2;
 
-  } else if (options.chartMaxValue <= 99) {
-    options.chartMaxValue += 1;
-    while (options.chartMaxValue % 5 !== 0) {
+  if (options.chartMaxValue === undefined || options.chartMaxValue < options.maxValue) {
+    options.chartMaxValue = options.maxValue;
+    if (options.chartMaxValue <= 9) {
       options.chartMaxValue += 1;
+    } else if (options.chartMaxValue <= 18) {
+      options.chartMaxValue += 2;
+
+    } else if (options.chartMaxValue <= 99) {
+      options.chartMaxValue += 1;
+      while (options.chartMaxValue % 5 !== 0) {
+        options.chartMaxValue += 1;
+      }
+
+    } else {
+      options.chartMaxValue += 1;
+      while (options.chartMaxValue % 20 !== 0) {
+        options.chartMaxValue += 1;
+      }
     }
 
-  } else {
-    options.chartMaxValue += 1;
-    while (options.chartMaxValue % 20 !== 0) {
-      options.chartMaxValue += 1;
-    }
   }
 
 
