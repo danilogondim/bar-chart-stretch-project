@@ -31,7 +31,7 @@ const checkValues = function (data, options) {
     plotValuesColour: "black",
     plotValuesSize: 15,
 
-    barColour: "light-blue",
+    barColours: ["lightblue", "lightcoral", "lightgray", "lightgreen", "lightseagreen", "crimson", "darkcyan", "darkgoldenrod", "orange", "purple"],
     barSpacing: 50,
 
     labelColour: "black",
@@ -75,11 +75,13 @@ const checkValues = function (data, options) {
   }
 
   // set a MaxValue to help defining y-axis and bar heights
+  let objSum;
   for (let obj of data) {
+    objSum = obj.values.reduce((a, b) => a + b, 0);
     if (options.maxValue === undefined) {
-      options.maxValue = obj.value;
-    } else if (obj.value > options.maxValue) {
-      options.maxValue = obj.value;
+      options.maxValue = objSum;
+    } else if (objSum > options.maxValue) {
+      options.maxValue = objSum;
     }
   }
 

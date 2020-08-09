@@ -1,5 +1,5 @@
 .bars {
-  display: inline-grid;
+  display: inline-table;
   vertical-align: bottom;
   text-align: center
 }
