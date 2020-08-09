@@ -6,10 +6,8 @@ const drawBars = function (data, options, element) {
     "height": options.plotHeight
   })
 
-
   // make barWidth dynamic according to the chart width, the empty spaces and the number of values passed)
   const barWidth = (options.plotWidth - ((data.length + 1) * options.barSpacing)) / data.length; // bar width depends on the total amount of values passed.
-
 
   // draw the bars
   let mainBarCounter = 0;
@@ -21,12 +19,6 @@ const drawBars = function (data, options, element) {
       $(element).append(`<span id="top-empty-space" style="height: ${(options.chartMaxValue - options.maxValue) / options.chartMaxValue * 100}%; display: block"></span>`);
       $(element).append("<div class=\"bar-spaces\"></div>");
     }
-
-
-
-
-    // START CHANGING HERE
-
 
     // start drawing the bars
     // calculate and set each bar height
@@ -46,24 +38,11 @@ const drawBars = function (data, options, element) {
       sectionCounter++;
     }
 
-
-
-
-    // STOP CHANGING HERE
-
-
-
-
-
-
-
     // include an empty bar space after each bar
     $(element).append("<div class=\"bar-spaces\"></div>");
 
     mainBarCounter++;
   };
-
-
 
   // set each section color
   // check how many different sections we have
