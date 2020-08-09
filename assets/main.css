@@ -24,3 +24,7 @@
   border-bottom: 0.3mm solid lightslategray;
   display: table;
 }
+
+#chart {
+  display: inline-grid;
+}

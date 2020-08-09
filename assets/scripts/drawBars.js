@@ -3,7 +3,8 @@
 const drawBars = function (data, options, element) {
   $(element).css({
     "width": options.plotWidth,
-    "height": options.plotHeight
+    "height": options.plotHeight,
+    // "display": "inline-block"
   })
 
   // make barWidth dynamic according to the chart width, the empty spaces and the number of values passed)
@@ -57,6 +58,7 @@ const drawBars = function (data, options, element) {
   for (let i = 0; i < maxSections; i++) {
     $(`.section${i}`).css({
       "background-color": `${options.barColours[i]}`,
+      "display": "grid"
     });
 
   }

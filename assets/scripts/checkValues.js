@@ -51,22 +51,25 @@ const checkValues = function (data, options) {
 
   // check whether the passed widths are compatible and correct them if not, trying to keep the same rate as passed
   if (options.plotWidth + options.yAxisWidth !== options.chartWidth) {
-    options.plotWidth = options.chartWidth * options.plotWidth / (options.plotWidth + options.yAxisWidth);
-    options.yAxisWidth = options.chartWidth * options.yAxisWidth / (options.plotWidth + options.yAxisWidth);
+    let total = options.plotWidth + options.yAxisWidth;
+    options.plotWidth = options.chartWidth * options.plotWidth / total;
+    options.yAxisWidth = options.chartWidth * options.yAxisWidth / total;
   };
   if (options.yAxisTitleWidth + options.yTicksWidth + options.yValuesWidth !== options.yAxisWidth) {
-    options.yAxisTitleWidth = options.yAxisWidth * options.yAxisTitleWidth / (options.yAxisTitleWidth + options.yTicksWidth + options.yValuesWidth);
-    options.yTicksWidth = options.yAxisWidth * options.yTicksWidth / (options.yAxisTitleWidth + options.yTicksWidth + options.yValuesWidth);
-    options.yValuesWidth = options.yAxisWidth * options.yValuesWidth / (options.yAxisTitleWidth + options.yTicksWidth + options.yValuesWidth);
+    let total = options.yAxisTitleWidth + options.yTicksWidth + options.yValuesWidth;
+    options.yAxisTitleWidth = options.yAxisWidth * options.yAxisTitleWidth / total;
+    options.yTicksWidth = options.yAxisWidth * options.yTicksWidth / total;
+    options.yValuesWidth = options.yAxisWidth * options.yValuesWidth / total;
   };
 
   // check whether the passed heights are compatible and correct them if not, trying to keep the same rate as passed
 
   if (options.titleHeight + options.plotHeight + options.labelsHeight + options.xAxisTitleHeight !== options.chartHeight) {
-    options.titleHeight = options.chartHeight * options.titleHeight / (options.titleHeight + options.plotHeight + options.labelsHeight + options.xAxisTitleHeight)
-    options.plotHeight = options.chartHeight * options.plotHeight / (options.titleHeight + options.plotHeight + options.labelsHeight + options.xAxisTitleHeight)
-    options.labelsHeight = options.chartHeight * options.labelsHeight / (options.titleHeight + options.plotHeight + options.labelsHeight + options.xAxisTitleHeight)
-    options.xAxisTitleHeight = options.chartHeight * options.xAxisTitleHeight / (options.titleHeight + options.plotHeight + options.labelsHeight + options.xAxisTitleHeight)
+    let total = options.titleHeight + options.plotHeight + options.labelsHeight + options.xAxisTitleHeight;
+    options.titleHeight = options.chartHeight * options.titleHeight / total;
+    options.plotHeight = options.chartHeight * options.plotHeight / total;
+    options.labelsHeight = options.chartHeight * options.labelsHeight / total;
+    options.xAxisTitleHeight = options.chartHeight * options.xAxisTitleHeight / total;
   }
 
   // set a limit to barSpacing according to the plot width and the number of elements (minimum acceptable width for each bar is 0.1px)
