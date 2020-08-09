@@ -12,7 +12,10 @@ const drawYAxis = function (options, element) {
     "writing-mode": "vertical-lr",
     "transform": "rotate(180deg)",
     "text-align": "center",
-    "font-size": options.yTitleSize
+    "font-size": options.yTitleSize,
+    "display": "inline-flex",
+    "justify-content": "center",
+    "align-items": "center"
   })
 
   // Create a div for the tick values and set them
