@@ -114,10 +114,19 @@ const checkValues = function (data, options) {
 
   }
 
+// check whether the number of colors are enough to cover all the passed values and append more values if not
+let maxSections;
+for (let obj of data) {
+  if (maxSections === undefined || obj.values.length > maxSections) {
+    maxSections = obj.values.length;
+  }
+}
 
-
-
-
+let iterator = 0;
+while (options.barColours.length < maxSections) {
+  options.barColours.push(defaultOptions.barColours[iterator]);
+  iterator++;
+}
 
 
 }

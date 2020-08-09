@@ -25,16 +25,16 @@
       $(document).ready(function () {
 
         const data = [
-          { label: 2011, values: [100, 20], sections: [] },
-          { label: 2012, values: [150, 30], sections: [] },
-          { label: 2013, values: [200, 50], sections: [] },
-          { label: 2014, values: [300, 30], sections: [] },
-          { label: 2015, values: [255, 20], sections: [] },
-          { label: 2016, values: [400, 25], sections: [] },
+          { label: 2011, values: [100, 70], sections: [] },
+          { label: 2012, values: [150, 130], sections: [] },
+          { label: 2013, values: [200, 80], sections: [] },
+          { label: 2014, values: [300, 60], sections: [] },
+          { label: 2015, values: [155, 180, 75, 60], sections: [] },
+          { label: 2016, values: [100, 300], sections: [] },
           { label: 2017, values: [320, 70], sections: [] },
-          { label: 2018, values: [500, 38], sections: [] },
-          { label: 2019, values: [450, 52], sections: [] },
-          { label: 2020, values: [175, 17], sections: [] }
+          { label: 2018, values: [400, 79], sections: [] },
+          { label: 2019, values: [350, 72], sections: [] },
+          { label: 2020, values: [175, 70], sections: [] }
         ];
         // to identify what the values represent (for future feature, like implementing a legend)
         for (let obj of data) {
@@ -50,7 +50,7 @@
           titleSize: 30,
           plotValuesPosition: "start",  //start, center or end (top, center or bottom)
           plotValuesColour: "black",
-          barColours: ["lightcoral"],
+          plotValuesSize: 15,
           barSpacing: 35,
           labelColour: "black",
           yAxisTitle: "Net Income",
