@@ -38,7 +38,7 @@ const checkValues = function (data, options) {
     labelsHeight: 45,
     labelsSize: 15,
 
-    xAxisTitle: "Years",
+    xAxisTitle: "",
     xTitleSize: 12,
     xAxisTitleHeight: 14,
   }

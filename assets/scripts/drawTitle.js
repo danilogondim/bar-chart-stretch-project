@@ -1,6 +1,6 @@
 //@ts-nocheck
 
-const drawTitle = function (data, options, element) {
+const drawTitle = function (options, element) {
 
 
   $(element).css({

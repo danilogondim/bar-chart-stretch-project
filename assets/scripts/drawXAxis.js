@@ -1,6 +1,6 @@
 //@ts-nocheck
 
-const drawXAxis = function (data, options, element) {
+const drawXAxis = function (options, element) {
   $(element).css({
     "width": options.plotWidth,
     "height": options.xAxisTitleHeight,

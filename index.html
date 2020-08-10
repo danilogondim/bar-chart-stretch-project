@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bar Chart Stretch Project</title>
-    <link rel="stylesheet" href="assets/main.css">
     <script src="assets/scripts/jquery.js"></script>
     <script src="assets/scripts/checkValues.js"></script>
     <script src="assets/scripts/drawYAxis.js"></script>
@@ -20,16 +19,22 @@
     <h1>Bar Chart Stretch Project</h1>
     <h2>Objective:</h2>
     <p>Create a bar chart using only HTML, CSS and JavaScript w/ jQuery.</p>
-    <div id="destination"></div>
+    <div id="chart1"></div>
+    <div id="chart2"></div>
+    <div id="chart3"></div>
     <script>
-      $(document).ready(function () {
+      // set a global variable chartNumber to keep track of the number of charts so there is no
+      // conflict within different ids and class. The ids and classes should be indexed by chartNumber.
+      let chartNumber = 0;
 
-        const data = [
+      $(document).ready(function () {
+        // draw first chart
+        let data = [
           { label: 2011, values: [100, 70], sections: [] },
           { label: 2012, values: [150, 130], sections: [] },
           { label: 2013, values: [200, 80], sections: [] },
           { label: 2014, values: [300, 60], sections: [] },
-          { label: 2015, values: [155, 180, 75, 60], sections: [] },
+          { label: 2015, values: [155, 180], sections: [] },
           { label: 2016, values: [100, 300], sections: [] },
           { label: 2017, values: [320, 70], sections: [] },
           { label: 2018, values: [400, 79], sections: [] },
@@ -38,15 +43,15 @@
         ];
         // to identify what the values represent (for future feature, like implementing a legend)
         for (let obj of data) {
-          obj.sections = ["sales", "costs"];
+          obj.sections = ["sales", "donations"];
         }
 
 
-        const options = {
+        let options = {
           chartWidth: 600,
           chartHeight: 300,
 
-          title: "A generic bar chart",
+          title: "Results",
           titleHeight: 25,
           titleColour: "black",
           titleSize: 15,
@@ -62,7 +67,7 @@
 
           yAxisWidth: 70,
 
-          yAxisTitle: "Net Income",
+          yAxisTitle: "Income ($)",
           yTitleSize: 15,
           yAxisTitleWidth: 10,
 
@@ -73,13 +78,62 @@
 
           labelsHeight: 25,
 
+          xAxisTitle: "Years",
           xTitleSize: 15,
           xAxisTitleHeight: 20
         }
 
-        const element = "#destination";
+        let element = "#chart1";
 
         drawBarChart(data, options, element);
+
+        // draw second chart
+        data = [
+          { label: "Toronto", values: [150, 120, 30], sections: [] },
+          { label: "Vancouver", values: [150, 90, 50], sections: [] },
+          { label: "Halifax", values: [100, 30, 45], sections: [] },
+        ];
+        // to identify what the values represent (for future feature, like implementing a legend)
+        for (let obj of data) {
+          obj.sections = ["car", "bus", "bicycle"];
+        }
+
+        options = {
+          title: "Transportation modals",
+          yAxisTitle: "Thousands",
+          xAxisTitle: "Cities",
+          labelsHeight: 90,
+          xTitleSize: 17,
+          xAxisTitleHeight: 25,
+        };
+        element = "#chart2"
+        drawBarChart(data, options, element);
+
+        // draw third chart
+        data = [
+          { label: "Store 1", values: [18, 23, 23, 25, 48], sections: [] },
+          { label: "Store 2", values: [20, 16, 38, 23, 32], sections: [] },
+          { label: "Store 3", values: [19, 17, 32, 21, 31], sections: [] },
+          { label: "Store 4", values: [17, 13, 54, 21, 15], sections: [] },
+          { label: "Store 5", values: [23, 27, 50, 16, 70], sections: [] },
+        ];
+        // to identify what the values represent (for future feature, like implementing a legend)
+        for (let obj of data) {
+          obj.sections = ["laptops", "printers", "smartphones", "drones", "games"];
+        }
+
+        options = {
+          title: "Stock",
+          yAxisTitle: "Units",
+          xAxisTitle: "Items",
+          xAxisTitleHeight: 25,
+          xTitleSize: 17,
+          labelsHeight: 50
+        };
+        element = "#chart3"
+        drawBarChart(data, options, element);
+
+
       });
     </script>
   </body>

@@ -2,14 +2,12 @@
 
 const drawLabels = function (data, options, element) {
 
-
-
   $(element).css({
     "width": options.plotWidth,
     "height": options.labelsHeight,
-    "text-align": "center"
+    "text-align": "center",
+    "display":"flex"
   })
-
 
   // make barWidth dynamic according to the chart width, the empty spaces and the number of values passed)
   const barWidth = (options.plotWidth - ((data.length + 1) * options.barSpacing)) / data.length; // bar width depends on the total amount of values passed.
@@ -19,28 +17,29 @@ const drawLabels = function (data, options, element) {
   for (let obj of data) {
 
     if (counter === 0) {
-      $(element).append("<div class=\"bar-spaces\"></div>");
+      $(element).append(`<div class="bar-spaces-${chartNumber}"></div>`);
     }
 
     $(element).append(
-      `<span id="labels${counter}" class="labels">
-        <span class="label-values">${obj.label}</span>
-      </span>`);
+      `<span class="labels-${chartNumber}">${obj.label}</span>`);
 
 
-    $(element).append("<div class=\"bar-spaces\"></div>");
+    $(element).append(`<div class="bar-spaces-${chartNumber}"></div>`);
 
     counter++;
   };
 
-  $(".bar-spaces").css({
+  $(`.bar-spaces-${chartNumber}`).css({
     "width": `${options.barSpacing}`
   })
-  $(".labels").css({
-    "display": "inline-block",
+  $(`.labels-${chartNumber}`).css({
+    "display": "inline-flex",
     "width": barWidth,
     "color": options.labelColour,
-    "font-size": options.labelsSize
+    "font-size": options.labelsSize,
+    "writing-mode": "vertical-rl",
+    "transform": "rotate(180deg)",
+    "justify-content" : "flex-end",
+    "align-items": "center"
   })
-
 };
