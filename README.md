@@ -95,8 +95,8 @@ The code still does not support legend, which makes it impossible to understand 
 ## External resources
 
 This website was built with the help material of the following sources:
-* [jQuery_Learning_Center] (https://learn.jquery.com/)
-* [W3Schools] (https://www.w3schools.com/)
-* [Stack_Overflow] (https://stackoverflow.com/)
-* [MDN_web_docs] (https://developer.mozilla.org/en-US/)
-* [GitHub_docs] (https://docs.github.com/en)
+* [jQuery Learning Center](https://learn.jquery.com/)
+* [W3Schools](https://www.w3schools.com/)
+* [Stack Overflow](https://stackoverflow.com/)
+* [MDN web docs](https://developer.mozilla.org/en-US/)
+* [GitHub docs](https://docs.github.com/en)
