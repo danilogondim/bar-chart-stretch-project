@@ -84,7 +84,7 @@ After all the previous sub-functions run, the data, options and element paramete
 
 ## Known issues/bugs
 
-Resizing the chart is a little tricky, because it usually demands changing different options height, width and font-size so that the chart is presentable.
+Resizing the chart is a little tricky, because it usually demands changing different options' height, width and font-size so that the chart is presentable.
 
 The x-axis is not completely aligned with the 0 tick on the y-axis.
 
