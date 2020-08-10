@@ -27,7 +27,7 @@ const checkValues = function (data, options) {
     plotWidth: 665,
     plotHeight: 210,
 
-    plotValuesPosition: "start",
+    plotValuesPosition: "center",
     plotValuesColour: "black",
     plotValuesSize: 15,
 
@@ -40,7 +40,7 @@ const checkValues = function (data, options) {
 
     xAxisTitle: "",
     xTitleSize: 12,
-    xAxisTitleHeight: 14,
+    xAxisTitleHeight: 14
   }
   // check whether an option was not given and set to the default values if necessary
   for (let option in defaultOptions) {
