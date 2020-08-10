@@ -4,18 +4,6 @@
 
 // reorganize the code, classes, ids...
 
-/*
-  Multiple Value (Stacked) bar charts
-  Allow the user to pass multiple values for each bar.
-
-  Think about how you would need to structure this data compared to a single bar chart.
-  This should also support all the features of the single bar chart, including
-
-  Customizable bar colours, per value
-  Customizable label colours
-*/
-
-
 //@ts-nocheck
 
 const drawBarChart = function (data, options, element) {
