@@ -54,7 +54,7 @@
           title: "Results",
           titleHeight: 25,
           titleColour: "black",
-          titleSize: 15,
+          titleSize: 20,
 
           plotValuesPosition: "start",  //start, center or end (top, center or bottom)
           plotValuesColour: "black",
@@ -100,7 +100,7 @@
 
         options = {
           title: "Transportation modals",
-          yAxisTitle: "Thousands",
+          yAxisTitle: "Users",
           yTitleSize: 15,
           yAxisWidth: 50,
           yAxisTitleWidth: 10,
@@ -111,21 +111,22 @@
           labelsHeight: 90,
           xTitleSize: 17,
           xAxisTitleHeight: 25,
+          plotValuesPosition: "center"
         };
         element = "#chart2"
         drawBarChart(data, options, element);
 
         // draw third chart
         data = [
-          { label: "Store 1", values: [18, 23, 23, 25, 48], sections: [] },
-          { label: "Store 2", values: [20, 16, 38, 23, 32], sections: [] },
-          { label: "Store 3", values: [19, 17, 32, 21, 31], sections: [] },
-          { label: "Store 4", values: [17, 13, 54, 21, 15], sections: [] },
-          { label: "Store 5", values: [23, 27, 50, 16, 70], sections: [] },
+          { label: "Laptop", values: [18, 23, 23, 25, 48], sections: [] },
+          { label: "Printer", values: [20, 16, 38, 23, 32], sections: [] },
+          { label: "HD", values: [19, 17, 32, 21, 31], sections: [] },
+          { label: "Drone", values: [17, 13, 54, 21, 15], sections: [] },
+          { label: "Camera", values: [23, 27, 50, 16, 70], sections: [] },
         ];
         // to identify what the values represent (for future feature, like implementing a legend)
         for (let obj of data) {
-          obj.sections = ["laptops", "printers", "smartphones", "drones", "games"];
+          obj.sections = ["Store 1", "Store 2", "Store 3", "Store 4", "Store 5"];
         }
 
         options = {
@@ -142,7 +143,7 @@
           xAxisTitleHeight: 25,
           xTitleSize: 17,
           labelsHeight: 50,
-          plotValuesPosition: "center",
+          plotValuesPosition: "center"
 
         };
         element = "#chart3"
